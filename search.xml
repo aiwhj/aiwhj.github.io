@@ -4,6 +4,52 @@
   
     
     <entry>
+      <title><![CDATA[记一次代码逻辑漏洞查找过程-永远不要相信用户的输入]]></title>
+      <url>http://readw.cn/2017/03/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E6%9F%A5%E6%89%BE%E8%BF%87%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<p>###今天朋友说自己网站被攻击，具体说是：</p>
+<ol>
+<li>网站做了提现限制200元起的验证，余额为0元的用户却提现了0元</li>
+<li>某用户通过微信支付0.01元买到了1000元的商品</li>
+<li>某用户余额为0元，却购买到了单价1000元的商品47个，并且自己余额变成47000，该商品从原来47个的库存变成了94个</li>
+</ol>
+<p>环境: windows+thinkphp 3.2，类似个人商城系统，能够余额，微信，支付宝银行卡支付，提现和充值都是人工打款</p>
+<p>由于商品库存被修改，朋友担心是有人入侵了系统，修改了数据库字段，原来做程序的员工离职了，找我来看看</p>
+<p>###先从最简单提现的来看<br>看了js和php，发现后台逻辑并没有验证200元限制，只是在前台用<code>js``alert();</code>验证了一下。。分分钟都能绕过直接<code>post</code>请求</p>
+<p>###然后是微信支付0.01买了1000元的商品<br>用微信支付试了一下，表面上并没有什么问题，走了一遍流程</p>
+<p>选择数量-&gt;提交订单-&gt;选择支付方式-&gt;发起支付请求-&gt;支付-&gt;完成订单</p>
+<p>很常规的支付流程，但是我曹，这二货在选择支付的时候把总价明文放在了<code>html</code>页面。然后把订单ID和总价post给微信，生成支付二维码，重点是微信回调支付完成的时候也没有验证，造成的后果就是，可以修改html页面的val来控制需要支付的金额，但是订单号不变，本来1000元的订单，把金额改成0.01，于是支付了0.01购买了1000元的商品</p>
+<p>###然后是第三个。。。<br>这个更奇葩。。。原因是有人故意将自己选择的商品数量改成了负数，也就是-47，然后库存47减去-47，于是库存变成了94，自己的余额从0元减去负的47*1000，就是47000了。。。</p>
+<p>###真如那句话</p>
+<blockquote>
+<p>永远不要相信用户的输入</p>
+</blockquote>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> php 安全 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[好吧，应该是Read the World]]></title>
+      <url>http://readw.cn/2017/03/01/world/</url>
+      <content type="html"><![CDATA[<p>今天查了google翻译。。应该是Read the World，至于为什么，鬼才晓得，反正就这样吧，眼观六路耳听八方。。</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Hello World]]></title>
       <url>http://readw.cn/2017/02/28/hello-world/</url>
       <content type="html"><![CDATA[<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h3 id="希望这次能好好把这个博客更新下去"><a href="#希望这次能好好把这个博客更新下去" class="headerlink" title="希望这次能好好把这个博客更新下去"></a>希望这次能好好把这个博客更新下去</h3><ol>

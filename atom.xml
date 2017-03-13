@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://readw.cn/"/>
-  <updated>2017-02-28T14:14:19.000Z</updated>
+  <updated>2017-03-13T15:26:06.000Z</updated>
   <id>http://readw.cn/</id>
   
   <author>
@@ -14,6 +14,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记一次代码逻辑漏洞查找过程-永远不要相信用户的输入</title>
+    <link href="http://readw.cn/2017/03/12/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E%E6%9F%A5%E6%89%BE%E8%BF%87%E7%A8%8B/"/>
+    <id>http://readw.cn/2017/03/12/记一次代码逻辑漏洞查找过程/</id>
+    <published>2017-03-12T10:11:52.000Z</published>
+    <updated>2017-03-13T15:26:06.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###今天朋友说自己网站被攻击，具体说是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;网站做了提现限制200元起的验证，余额为0元的用户却提现了0元&lt;/li&gt;
+&lt;li&gt;某用户通过微信支付0.01元买到了1000元的商品&lt;/li&gt;
+&lt;li&gt;某用户余额为0元，却购买到了单价1000元的商品47
+    
+    </summary>
+    
+    
+      <category term="php 安全" scheme="http://readw.cn/tags/php-%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>好吧，应该是Read the World</title>
+    <link href="http://readw.cn/2017/03/01/world/"/>
+    <id>http://readw.cn/2017/03/01/world/</id>
+    <published>2017-03-01T10:11:52.000Z</published>
+    <updated>2017-03-13T15:31:45.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天查了google翻译。。应该是Read the World，至于为什么，鬼才晓得，反正就这样吧，眼观六路耳听八方。。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://readw.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
